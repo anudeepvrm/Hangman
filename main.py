@@ -5,7 +5,11 @@ __author__ = 'avarm1'
 import random
 
 class Startup(object):
-    name="sparrow"
+    file=open("names.txt")
+    data=file.read()
+    data=data.split("\n")
+
+    name=data[random.randint(0,len(data)-1)]
     alphabets=[]
     chances=5
     victory=1
@@ -13,8 +17,12 @@ class Startup(object):
 
     def printanimal(self):
         for i in self.name:
-            if(self.alphabets[ord(i)-ord("a")]=="found"):
+            if(i==" "):
+                print(" ",end=" ")
+            elif(self.alphabets[ord(i)-ord("a")]=="found"):
                 print(i,end=" ")
+
+
             else:
                 print("_ ",end="")
 
@@ -24,21 +32,29 @@ class Startup(object):
         for i in range(0,26):
             self.alphabets.append(1)
 
-        random_number = random.randint(0, len(self.name)-1)
+        while(True):
+            random_number = random.randint(0, len(self.name)-1)
+            if(self.name[random_number]!=" "):
+                break
+
 
 
         for i in self.name:
 
-            self.alphabets[ord(i)-ord("a")]=0
+            if(i.isalpha()):
+                self.alphabets[ord(i)-ord("a")]=0
+
 
         self.alphabets[ord(self.name[random_number])-ord("a")]="found"
 
+        self.printanimal()
 
-        for letter in self.name:
-            if(self.name[random_number]==letter):
-                print(letter,end=" ")
-            else:
-                print("_ ",end="")
+
+
+
+
+
+
 
 
 
