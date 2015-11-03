@@ -70,6 +70,7 @@ temp=Startup()
 temp.startguess()
 temp.enterinput()
 if(temp.chances<=0):
+
     print("\nsorry you have lost\n try again")
 else:
     print("\nhurry you won")
