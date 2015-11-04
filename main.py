@@ -3,6 +3,7 @@ __author__ = 'avarm1'
 
 
 import random
+import Imagesmanage
 
 class Startup(object):
     file=open("names.txt")
@@ -71,6 +72,7 @@ class Startup(object):
                 elif(self.alphabets[ord(choice)-ord("a")]==1):
                     self.chances=self.chances-1
                     print("wrong guess...you have %d chyances remaining"%self.chances)
+                    Imagesmanage.displayimage(5-self.chances)
                     self.printanimal()
                     self.alphabets[ord(choice)-ord("a")]="wrong"
 
